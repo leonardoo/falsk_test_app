@@ -1,0 +1,20 @@
+version: "3"
+services:
+  mongodb:
+    image: mongo:4.4.2
+    expose:
+      - "27017"
+    ports:
+      - "27017:27017"
+  app:
+    build:
+      context: .
+      dockerfile: DockerFile
+    stdin_open: true
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/acme
+    command: /start

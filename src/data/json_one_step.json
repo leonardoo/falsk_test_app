@@ -1,0 +1,33 @@
+{
+    "steps": [
+      {
+        "id": "validate_account",
+        "params": {
+          "user_id": {
+            "from_id": "start",
+            "param_id": "user_id"
+          },
+          "pin": {
+            "from_id": "start",
+            "param_id": "pin"
+          }
+        },
+        "action": "validate_account",
+        "transitions": [
+        ]
+      }
+    ],
+    "trigger": {
+      "params": {
+        "user_id": "105398891",
+        "pin": 2090
+      },
+      "transitions": [
+        {
+          "target": "validate_account",
+          "condition": []
+        }
+      ],
+      "id": "start"
+    }
+  }
